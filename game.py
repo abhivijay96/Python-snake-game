@@ -24,7 +24,7 @@ class Game:
         self.frame1.pack_propagate(0)
         self.frame1.update()
         self.frame1.configure(pady=self.frame1.cget("height") / 2.5)
-        logo = PhotoImage(file="Game_Logo.gif")
+        logo = PhotoImage(file="logo.gif")
         starth = Button(self.frame1, text="Hard", bg="orange", padx=25, pady=5,
                         font=Font(family="comic sans MS", size=10),
                         command=lambda: self.callgame(40))
