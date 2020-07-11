@@ -56,28 +56,30 @@ class Game:
         self.time = time
         self.game()
 
+    def do_after_cancel(self, a, b):
+        if a != 0:
+            self.w.after_cancel(a)
+        if b != 0:
+            self.w.after_cancel(b)
+
     def calldown(self, key):
         if self.hor:
-            self.w.after_cancel(self.leftid)
-            self.w.after_cancel(self.rightid)
+            self.do_after_cancel(self.leftid, self.rightid)
             self.down(0)
 
     def callup(self, key):
         if self.hor:
-            self.w.after_cancel(self.leftid)
-            self.w.after_cancel(self.rightid)
+            self.do_after_cancel(self.leftid, self.rightid)
             self.up(0)
 
     def callright(self, key):
         if not self.hor:
-            self.w.after_cancel(self.upid)
-            self.w.after_cancel(self.downid)
+            self.do_after_cancel(self.upid, self.downid)
             self.right(0)
 
     def callleft(self, key):
         if not self.hor:
-            self.w.after_cancel(self.upid)
-            self.w.after_cancel(self.downid)
+            self.do_after_cancel(self.upid, self.downid)
             self.left(0)
 
     def game(self):
